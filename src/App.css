@@ -21,6 +21,16 @@
 table {
   border: 1px solid #888;
 }
+td.td-header {
+  min-width: 50px;
+  min-height: 35px;
+}
+.td-header-text {
+  color: #888;
+  font-size: xx-large;
+  font-weight: 600;
+}
+
 
 @keyframes logo-spin {
   from {

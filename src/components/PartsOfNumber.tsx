@@ -5,7 +5,7 @@ interface Props {
 const PartsOfNumber = (props: Props) => {
   return (
     <>
-      <span>{props.displayNum}</span>
+      <span className="td-header-text">{props.displayNum}</span>
     </>
   );
 };
