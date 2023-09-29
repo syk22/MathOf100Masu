@@ -1,13 +1,6 @@
-// import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
 import './App.css';
-import PartsOfInput from './components/PartsOfNumber';
-
-// interface Props {
-//   type: "x" | "y";
-//   index: number;
-// }
+import PartsOfNumber from './components/PartsOfNumber';
+import PartsOfInput from './components/PartsOfInput';
 
 const App = () => {
   // X列Header
@@ -19,9 +12,9 @@ const App = () => {
   const headerX = (): JSX.Element[] => {
     return numberXarray.map((v, i) => {
       return (
-        <td className="td-header">
-          <PartsOfInput displayNum={v.toString()} key={i.toString()} />
-        </td>
+        <th className="td-header" key={i.toString()}>
+          <PartsOfNumber displayNum={v.toString()} />
+        </th>
       );
     });
   };
@@ -30,16 +23,19 @@ const App = () => {
   const headerY = (): JSX.Element[] => {
     return numberYarray.map((v, i) => {
       return (
-        <tr>
+        <tr key={`${v}+${i.toString()}`}>
           <td className="td-header">
-            <PartsOfInput displayNum={v.toString()} key={i.toString()} />
+            <PartsOfNumber displayNum={v.toString()} />
           </td>
           {Array(10)
             .fill(0)
             .map((_, i2) => {
               return (
                 <td className="td-header" key={i2.toString()}>
-                  {counter++}
+                  <PartsOfInput
+                    ans={(numberXarray[i] * numberYarray[i2]).toString()}
+                    keyId={(counter++).toString()}
+                  />
                 </td>
               );
             })}
@@ -52,11 +48,13 @@ const App = () => {
     <>
       <div className="mainContents">
         <table>
-          <tr>
-            <td> </td>
-            {headerX()}
-          </tr>
-          {headerY()}
+          <thead>
+            <tr>
+              <th className="td-header"> </th>
+              {headerX()}
+            </tr>
+          </thead>
+          <tbody>{headerY()}</tbody>
         </table>
       </div>
     </>

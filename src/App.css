@@ -21,7 +21,7 @@
 table {
   border: 1px solid #888;
 }
-td.td-header {
+.td-header {
   min-width: 50px;
   min-height: 35px;
 }
@@ -29,6 +29,14 @@ td.td-header {
   color: #888;
   font-size: xx-large;
   font-weight: 600;
+}
+
+input {
+  text-align: right;
+  box-sizing: border-box;
+  width: 45px;
+  height: 35px;
+  padding: 5px;
 }
 
 

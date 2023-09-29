@@ -1,12 +1,20 @@
+// import { FC } from 'react';
+
 interface Props {
   ans: string;
   keyId: string;
 }
 
 const PartsOfInput = (props: Props): JSX.Element => {
+  // const PartsOfInput = (): JSX.Element => {
+  const { ans, keyId } = props;
+  console.log(`ans: ${ans}`);
+  console.log(`keyId: ${keyId}`);
+
   return (
     <>
-      <input type="text" id={props.keyId} maxLength={3} />
+      {/* {keyId} */}
+      <input type="text" value={ans} id={keyId} maxLength={3} />
     </>
   );
 };
